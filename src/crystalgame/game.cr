@@ -1,10 +1,14 @@
-module CrystalGame
-  class Game
-    property :window
+require "./window"
+require "./states/game_state"
+require "./states/menu_state"
+require "./states/play_state"
 
+module CrystalGame
+  getter window : CrystalGame::Window
+
+  class Game
     def initialize
-      @window = SF::RenderWindow.new(SF::VideoMode.new(800, 600), "Crystal Game")
-      @window.vertical_sync_enabled = true
+      @window = CrystalGame::Window.new(800, 600)
     end
 
     def run
@@ -12,7 +16,23 @@ module CrystalGame
         while event = @window.poll_event
           game_loop_handle_event(event)
         end
+
+        # Game logic
+        game_loop_update
+
+        # Render logic
+        @window.clear(SF::Color::White)
+        game_loop_draw
+        @window.display
       end
+    end
+
+    private def game_loop_update
+      @window.state.update
+    end
+
+    private def game_loop_draw
+      @window.state.draw
     end
 
     private def game_loop_handle_event(event : SF::Event)
@@ -29,6 +49,7 @@ module CrystalGame
 
     private def handle_key_pressed(key : SF::Keyboard::Key)
       puts "Key pressed: #{key.inspect}"
+      @window.state.button_down(key)
     end
   end
 end
