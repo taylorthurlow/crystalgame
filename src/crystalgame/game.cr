@@ -21,7 +21,7 @@ module CrystalGame
         game_loop_update
 
         # Render logic
-        @window.clear(SF::Color::White)
+        @window.clear(SF::Color::Black)
         game_loop_draw
         @window.display
       end
