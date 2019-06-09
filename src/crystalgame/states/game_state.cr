@@ -48,8 +48,11 @@ module CrystalGame
     end
 
     def needs_update?
-      puts "checking if needs update"
-      !@paused && !fading
+      !@paused && !fading?
+    end
+
+    def needs_redraw?
+      true
     end
 
     abstract def enter

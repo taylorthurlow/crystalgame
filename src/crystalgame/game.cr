@@ -28,11 +28,11 @@ module CrystalGame
     end
 
     private def game_loop_update
-      @window.state.update
+      @window.state.update if @window.state.needs_update?
     end
 
     private def game_loop_draw
-      @window.state.draw
+      @window.state.draw if @window.state.needs_redraw?
     end
 
     private def game_loop_handle_event(event : SF::Event)
