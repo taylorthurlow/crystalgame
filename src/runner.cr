@@ -1,3 +1,3 @@
 require "./crystal_game"
 
-CrystalGame.run
+CrystalGame.start
