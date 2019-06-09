@@ -1,0 +1,5 @@
+files: ./**/*.cr
+run: LIBRARY_PATH=/Users/taylor/Code/crsfml/voidcsfml LD_LIBRARY_PATH=/Users/taylor/Code/crsfml/voidcsfml crystal build ./src/runner.cr -o ./bin/crystal_game
+---
+files: ./shard.yml
+run: crystal deps
