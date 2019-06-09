@@ -1,0 +1,9 @@
+/docs
+/bin
+/pkg
+/lib
+/.shards
+*.dwarf
+/.vscode
+.DS_Store
+tags

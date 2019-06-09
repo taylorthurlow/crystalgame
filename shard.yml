@@ -1,0 +1,16 @@
+name: crystal_game
+version: 0.1.0
+
+authors:
+  - Taylor Thurlow <taylorthurlow8@gmail.com>
+
+description: rubygame but ported to crystal
+
+license: MIT
+
+crystal: 0.29.0
+
+development_dependencies:
+  ameba:
+    github: veelenga/ameba
+    version: ~> 0.10.0
