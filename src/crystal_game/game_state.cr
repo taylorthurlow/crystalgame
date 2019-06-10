@@ -1,6 +1,8 @@
+require "./window"
+
 module CrystalGame
   abstract class GameState
-    getter window : CrystalGame::Window
+    getter window : Window
     property paused : Bool
 
     def initialize(window)
@@ -9,12 +11,6 @@ module CrystalGame
       @fade = 0
       @fading_out = false
       @fading_in = false
-    end
-
-    def self.switch(new_state : GameState)
-      @window.state.leave
-      @window.state = new_state
-      new_state.enter
     end
 
     def draw(fade_speed : Int8 = 5)

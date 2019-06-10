@@ -1,4 +1,6 @@
-require "./states/game_state"
+require "crsfml"
+require "./game_state"
+require "./game_state/menu_state"
 
 module CrystalGame
   class Window < SF::RenderWindow
@@ -16,6 +18,12 @@ module CrystalGame
       @font = SF::Font.from_file("src/assets/fonts/Retron2000.ttf")
 
       self.vertical_sync_enabled = true
+    end
+
+    def switch_state(new_state : GameState)
+      @state.not_nil!.leave
+      @state = new_state
+      @state.not_nil!.enter
     end
 
     def update

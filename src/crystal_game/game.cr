@@ -1,14 +1,11 @@
 require "./window"
-require "./states/game_state"
-require "./states/menu_state"
-require "./states/play_state"
 
 module CrystalGame
-  getter window : CrystalGame::Window
+  getter window : Window
 
   class Game
     def initialize
-      @window = CrystalGame::Window.new(800, 600)
+      @window = Window.new(800, 600)
     end
 
     def run

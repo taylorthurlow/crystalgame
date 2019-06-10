@@ -1,7 +1,10 @@
-require "./game_state"
+require "../game_state"
+require "./play_state"
 
 module CrystalGame
   class MenuState < GameState
+    property? :play_state
+
     def enter; end
 
     def leave; end
@@ -25,6 +28,9 @@ module CrystalGame
       case key
       when SF::Keyboard::Escape, SF::Keyboard::Q
         @window.close
+      when SF::Keyboard::N
+        @play_state = PlayState.new(@window)
+        @window.switch_state(@play_state.not_nil!)
       end
     end
 
